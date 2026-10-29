@@ -48,4 +48,4 @@ PDF scan cần OCR; PDF nhiều cột hoặc bảng phức tạp có thể sai t
 
 ## Module embedding và lưu trữ vector
 
-Sau khi tạo `ket_qua_mau.jsonl`, cài thêm `python -m pip install -r vi_doc_rag\requirements-embedding.txt`, rồi chạy `python -m vi_doc_rag.vector_store --db-path vi_doc_rag\vector_db --batch-size 4 index vi_doc_rag\ket_qua_mau.jsonl`. Tìm kiếm thử bằng `python -m vi_doc_rag.vector_store --db-path vi_doc_rag\vector_db search "câu hỏi tiếng Việt" --top-k 3`.
+Sau khi tạo `ket_qua_mau.jsonl`, cài thêm `python -m pip install -r vi_doc_rag\requirements-embedding.txt`, rồi chạy `python -m vi_doc_rag.vector_store --db-path vi_doc_rag\vector_db --batch-size 4 index vi_doc_rag\ket_qua_mau.jsonl`. Chạy file show_vector_db.py để kiểm tra các chunk đã được embedding sang vector.
