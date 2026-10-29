@@ -1,0 +1,6 @@
+﻿.venv/
+venv/
+__pycache__/
+*.py[cod]
+vector_db/
+chroma_db/
