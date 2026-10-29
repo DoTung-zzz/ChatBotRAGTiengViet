@@ -1,0 +1,14 @@
+# Hướng dẫn hỏi đáp tài liệu tiếng Việt
+
+Chương 1. Mục tiêu của hệ thống
+Hệ thống hỏi đáp tài liệu giúp người dùng tìm thông tin trong các tài liệu tiếng Việt bằng câu hỏi tự nhiên. Ở giai đoạn đầu, module tiếp nhận tệp PDF, DOCX, TXT và Markdown, trích xuất nội dung, chuẩn hóa văn bản và chia nội dung thành các đoạn nhỏ gọi là chunk. Mỗi chunk được giữ kèm thông tin nguồn để các bước embedding và truy xuất sau này có thể sử dụng.
+
+Chương 2. Quy trình xử lý tài liệu
+Đầu tiên, người dùng chọn một tài liệu hoặc một thư mục chứa nhiều tài liệu. Bộ nạp tệp xác định định dạng và trích xuất văn bản. Với PDF, hệ thống cố gắng giữ ranh giới trang và ghi số trang vào metadata. Với DOCX, hệ thống đọc các đoạn văn và bảng theo thứ tự xuất hiện. Văn bản sau đó được chuẩn hóa Unicode NFC, loại ký tự rác và nối lại những dòng bị xuống dòng giữa câu.
+
+Chương 3. Chia đoạn và dữ liệu đầu ra
+Chunker ưu tiên ranh giới câu và đoạn để không cắt nội dung tùy tiện. Kích thước chunk được cấu hình bằng số ký tự; phần overlap giúp giữ ngữ cảnh giữa các chunk liền kề. Kết quả được ghi theo định dạng JSONL, mỗi dòng chứa một chunk cùng mã định danh và metadata như tên tệp, mục, số trang, số ký tự và số từ. Đây là đầu vào thuận tiện cho module embedding và vector database.
+
+Chương 4. Giới hạn cần đánh giá
+PDF scan chỉ chứa hình ảnh chưa được OCR nên có thể không trích xuất được văn bản. PDF nhiều cột, bảng phức tạp hoặc tài liệu dùng bảng mã tiếng Việt cũ có thể cần xử lý bổ sung. Vì vậy, cần kiểm tra ngẫu nhiên văn bản đầu ra và so sánh với tài liệu gốc trước khi dùng làm dữ liệu hỏi đáp.
+

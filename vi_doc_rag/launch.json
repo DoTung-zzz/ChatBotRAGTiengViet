@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Chạy thử: chọn file/thư mục bằng hộp thoại",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "vi_doc_rag",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}",
+      "env": { "PYTHONUTF8": "1" }
+    },
+    {
+      "name": "Chạy test tự động",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "unittest",
+      "args": ["discover", "-s", "vi_doc_rag", "-p", "test_*.py", "-v"],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}
+
